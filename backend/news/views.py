@@ -1,7 +1,7 @@
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView
 from .models import News, Tag
 from .pagination import NewsPagination
-from .serializers import NewsSerializer, TagSerializer
+from .serializers import NewsSerializer, TagSerializer, NewsDetailSerializer
 
 
 class TagListAPIView(ListAPIView):
@@ -13,3 +13,8 @@ class NewsListAPIView(ListAPIView):
     queryset = News.objects.all().prefetch_related("tags")
     serializer_class = NewsSerializer
     pagination_class = NewsPagination
+
+
+class NewsDetailAPIView(RetrieveAPIView):
+    queryset = News.objects.all().prefetch_related("tags")
+    serializer_class = NewsDetailSerializer

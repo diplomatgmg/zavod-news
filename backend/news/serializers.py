@@ -11,4 +11,10 @@ class TagSerializer(serializers.ModelSerializer):
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
+        fields = ("id", "title", "image", "tags")
+
+
+class NewsDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = News
         fields = "__all__"
