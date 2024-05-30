@@ -1,3 +1,18 @@
 from django.db import models
 
-# Create your models here.
+
+class Tag(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
+class News(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    image = models.ImageField(upload_to="news_images/")
+    tags = models.ManyToManyField(Tag)
+
+    def __str__(self):
+        return self.title
