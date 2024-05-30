@@ -9,5 +9,5 @@ class TagListAPIView(ListAPIView):
 
 
 class NewsListAPIView(ListAPIView):
-    queryset = News.objects.all()
+    queryset = News.objects.all().prefetch_related("tags")
     serializer_class = NewsSerializer
