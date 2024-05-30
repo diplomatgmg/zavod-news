@@ -1,0 +1,8 @@
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/project/backend
+    ports:
+      - "8000:8000"
+    command: sh -c "sh startup.sh"
