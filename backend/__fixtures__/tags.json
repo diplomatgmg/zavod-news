@@ -1,0 +1,352 @@
+[
+  {
+    "model": "news.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Tech"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Health"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Science"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 4,
+    "fields": {
+      "name": "Education"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 5,
+    "fields": {
+      "name": "Travel"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 6,
+    "fields": {
+      "name": "Food"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 7,
+    "fields": {
+      "name": "Entertainment"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 8,
+    "fields": {
+      "name": "Sports"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 9,
+    "fields": {
+      "name": "Politics"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 10,
+    "fields": {
+      "name": "Business"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 11,
+    "fields": {
+      "name": "Economy"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 12,
+    "fields": {
+      "name": "Culture"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 13,
+    "fields": {
+      "name": "History"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 14,
+    "fields": {
+      "name": "Nature"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 15,
+    "fields": {
+      "name": "Space"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 16,
+    "fields": {
+      "name": "Lifestyle"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 17,
+    "fields": {
+      "name": "Fashion"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 18,
+    "fields": {
+      "name": "Automotive"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 19,
+    "fields": {
+      "name": "Real Estate"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 20,
+    "fields": {
+      "name": "Environment"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 21,
+    "fields": {
+      "name": "Technology"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 22,
+    "fields": {
+      "name": "Gaming"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 23,
+    "fields": {
+      "name": "Movies"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 24,
+    "fields": {
+      "name": "Music"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 25,
+    "fields": {
+      "name": "Books"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 26,
+    "fields": {
+      "name": "Art"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 27,
+    "fields": {
+      "name": "Theater"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 28,
+    "fields": {
+      "name": "TV Shows"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 29,
+    "fields": {
+      "name": "Fitness"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 30,
+    "fields": {
+      "name": "Health & Wellness"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 31,
+    "fields": {
+      "name": "Medicine"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 32,
+    "fields": {
+      "name": "Science & Tech"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 33,
+    "fields": {
+      "name": "Innovation"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 34,
+    "fields": {
+      "name": "Startups"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 35,
+    "fields": {
+      "name": "Marketing"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 36,
+    "fields": {
+      "name": "Advertising"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 37,
+    "fields": {
+      "name": "Finance"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 38,
+    "fields": {
+      "name": "Investing"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 39,
+    "fields": {
+      "name": "Economics"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 40,
+    "fields": {
+      "name": "World News"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 41,
+    "fields": {
+      "name": "Local News"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 42,
+    "fields": {
+      "name": "National News"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 43,
+    "fields": {
+      "name": "Opinion"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 44,
+    "fields": {
+      "name": "Editorial"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 45,
+    "fields": {
+      "name": "Columns"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 46,
+    "fields": {
+      "name": "Interviews"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 47,
+    "fields": {
+      "name": "Profiles"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 48,
+    "fields": {
+      "name": "Investigations"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 49,
+    "fields": {
+      "name": "Reviews"
+    }
+  },
+  {
+    "model": "news.tag",
+    "pk": 50,
+    "fields": {
+      "name": "How-To"
+    }
+  }
+]
