@@ -1,47 +1,17 @@
-import React, { type ReactElement, useEffect, useState } from 'react'
+import React, { type ReactElement } from 'react'
 import { Container } from 'react-bootstrap'
-import NewsList from './pages/News/NewsList'
-import { useGetNewsQuery } from './redux/api'
-import { useAppDispatch, useSearchParams } from './redux/hooks'
-import { setPage } from './redux/searchParamsSlice'
-import { type TNewsSummary } from './types/types'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import SearchForm from './components/SearchForm'
+import NewsContainer from './containers/NewsContainer'
 
 const App = (): ReactElement => {
-  const [allNews, setAllNews] = useState<TNewsSummary[]>([])
-  const { data, isFetching } = useGetNewsQuery(useSearchParams())
-  const dispatch = useAppDispatch()
-  const { page } = useSearchParams()
-
-  const handleScroll = (): void => {
-    // Fetch запрос, если пользователь пролистал 80% страницы
-    const remainingHeight = document.body.offsetHeight - window.innerHeight - window.scrollY
-    const twentyPercentHeight = document.body.offsetHeight * 0.2
-
-    if (remainingHeight <= twentyPercentHeight && !isFetching) {
-      dispatch(setPage(page + 1))
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [isFetching])
-
-  useEffect(() => {
-    if (data !== undefined) {
-      setAllNews(prevNews => [...prevNews, ...data.results])
-    }
-  }, [data])
-
   return (
     <div>
       <Header />
       <Container className="mt-5">
         <SearchForm />
-        <NewsList news={allNews} />
+        <NewsContainer />
       </Container>
       <Footer />
     </div>
