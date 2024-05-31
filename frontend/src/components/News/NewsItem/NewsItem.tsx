@@ -12,7 +12,7 @@ const NewsItem: FC<NewsItemProps> = ({ news }) => {
   const { id, title, image, tags } = news
   const navigate = useNavigate()
 
-  const handleNewsClick = () => {
+  const handleNewsClick = (): void => {
     navigate(`/news/${id}`)
   }
 

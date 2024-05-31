@@ -14,7 +14,7 @@ const api = createApi({
         params
       })
     }),
-    getNewsById: build.query<TNews, unknown>({
+    getNewsById: build.query<TNews, string>({
       query: (id) => ({
         url: `news/${id}/`
       })

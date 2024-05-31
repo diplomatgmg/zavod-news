@@ -7,7 +7,7 @@ interface NewsDetailItemProps {
 }
 
 const NewsDetailItem: FC<NewsDetailItemProps> = ({ news }): ReactElement => {
-  const { id, title, content, image, tags } = news
+  const { title, content, image, tags } = news
 
   return (
     <Card className="p-5">
