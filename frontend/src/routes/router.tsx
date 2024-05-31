@@ -1,18 +1,18 @@
 import { createBrowserRouter } from 'react-router-dom'
-import NewsContainer from '../containers/NewsContainer'
+import NewsPage from '../components/pages/NewsPage/NewsPage'
 import App from '../App'
-import Main from '../components/Main/Main'
 import RootBoundary from './RootBoundary'
+import MainPage from '../components/pages/MainPage/MainPage'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App><Main /></App>,
+    element: <App><MainPage /></App>,
     errorElement: <App><RootBoundary /></App>
   },
   {
     path: '/news',
-    element: <App><NewsContainer /></App>
+    element: <App><NewsPage /></App>
   }
 ])
 
