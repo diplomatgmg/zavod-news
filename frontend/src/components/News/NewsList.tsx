@@ -9,7 +9,7 @@ interface NewsListProps {
 const NewsList: FC<NewsListProps> = ({ news }): ReactElement => {
   return (
     <ul>
-      {news.map((item) => <NewsItem key={item.id} news={item}/>)}
+      {news.map((item, index) => <NewsItem news={item} key={`${item.id}-${index}`}/>)}
     </ul>
   )
 }

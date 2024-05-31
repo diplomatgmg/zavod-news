@@ -6,10 +6,10 @@ interface NewsItemProps {
 }
 
 const NewsItem: FC<NewsItemProps> = ({ news }): ReactElement => {
-  const { id, title, image, tags } = news
+  const { title, image, tags } = news
 
   return (
-    <li key={id}>
+    <li>
       <h3>{title}</h3>
       <img src={image} width={200}></img>
       <p>
