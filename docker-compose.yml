@@ -6,3 +6,12 @@ services:
     ports:
       - "8000:8000"
     command: sh -c "sh startup.sh"
+
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/project/frontend
+      - ./frontend/node_modules:/project/frontend/node_modules
+    ports:
+      - "3000:3000"
+    command: sh -c "npm start"
