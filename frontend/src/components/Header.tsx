@@ -8,10 +8,9 @@ const Header = (): ReactElement => {
         <Navbar.Brand href="/">Новостной Сайт</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
+           <Nav className="ml-auto">
             <Nav.Link href="/news">Новости</Nav.Link>
-            <Nav.Link href="/tags">Новости по тегу</Nav.Link>
-          </Nav>
+           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>

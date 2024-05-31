@@ -3,7 +3,9 @@ import { useGetNewsQuery } from '../redux/api'
 import { useAppDispatch, useSearchParams } from '../redux/hooks'
 import { setPage } from '../redux/searchParamsSlice'
 import { type TNewsSummary } from '../types/types'
-import NewsList from '../pages/News/NewsList'
+import NewsList from '../components/News/NewsList'
+import { Container } from 'react-bootstrap'
+import SearchForm from '../components/SearchForm'
 
 const NewsContainer = (): ReactElement => {
   const [allNews, setAllNews] = useState<TNewsSummary[]>([])
@@ -32,7 +34,12 @@ const NewsContainer = (): ReactElement => {
     }
   }, [data])
 
-  return <NewsList news={allNews} />
+  return (
+    <Container className="mt-4">
+      <SearchForm />
+      <NewsList news={allNews} />
+    </Container>
+  )
 }
 
 export default NewsContainer

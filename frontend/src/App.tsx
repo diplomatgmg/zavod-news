@@ -1,20 +1,20 @@
-import React, { type ReactElement } from 'react'
-import { Container } from 'react-bootstrap'
+import React, { type FC, type ReactElement } from 'react'
 import Header from './components/Header'
-import Footer from './components/Footer'
-import SearchForm from './components/SearchForm'
-import NewsContainer from './containers/NewsContainer'
+import Footer from './components/Footer/Footer'
 
-const App = (): ReactElement => {
+interface AppProps {
+  children: React.ReactNode
+}
+
+const App: FC<AppProps> = ({ children }): ReactElement => {
   return (
-    <div>
-      <Header />
-      <Container className="mt-5">
-        <SearchForm />
-        <NewsContainer />
-      </Container>
-      <Footer />
-    </div>
+    <>
+      <Header/>
+      <div className="app">
+        {children}
+      </div>
+      <Footer/>
+    </>
   )
 }
 
