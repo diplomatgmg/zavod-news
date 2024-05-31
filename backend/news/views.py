@@ -21,7 +21,7 @@ class NewsDetailAPIView(RetrieveAPIView):
 
 
 class NewsByTagAPIView(ListAPIView):
-    serializer_class = NewsDetailSerializer
+    serializer_class = NewsSerializer
     pagination_class = NewsPagination
 
     def get_queryset(self):
