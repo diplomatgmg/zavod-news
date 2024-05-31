@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap'
 import { type TNews, type TNewsSummary } from '../../../types/types'
 import './style.scss'
 import { useNavigate } from 'react-router-dom'
+import routes from '../../../routes/routes'
 
 interface NewsItemProps {
   news: TNews | TNewsSummary
@@ -13,7 +14,7 @@ const NewsItem: FC<NewsItemProps> = ({ news }) => {
   const navigate = useNavigate()
 
   const handleNewsClick = (): void => {
-    navigate(`/news/${id}`)
+    navigate(routes.newsDetail(id))
   }
 
   return (

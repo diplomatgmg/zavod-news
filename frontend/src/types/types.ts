@@ -21,6 +21,7 @@ interface TNewsSummary {
 interface TSearchParams {
   page: number
   limit: number
+  tag: string
 }
 
 export type {

@@ -16,8 +16,12 @@ const router = createBrowserRouter([
     element: <App><NewsPage /></App>
   },
   {
-    path: '/news/:newsId', // Добавь маршрут для детальной страницы
+    path: '/news/:newsId',
     element: <App><NewsDetailPage /></App>
+  },
+  {
+    path: '/news/tag/:tag',
+    element: <App><NewsPage /></App>
   }
 ])
 
