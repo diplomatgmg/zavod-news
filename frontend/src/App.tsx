@@ -14,7 +14,7 @@ const App = (): ReactElement => {
   const dispatch = useAppDispatch()
   const { page } = useSearchParams()
 
-  const handleScroll = () => {
+  const handleScroll = (): void => {
     // Fetch запрос, если пользователь пролистал 80% страницы
     const remainingHeight = document.body.offsetHeight - window.innerHeight - window.scrollY
     const twentyPercentHeight = document.body.offsetHeight * 0.2
@@ -30,7 +30,7 @@ const App = (): ReactElement => {
   }, [isFetching])
 
   useEffect(() => {
-    if (data) {
+    if (data !== undefined) {
       setAllNews(prevNews => [...prevNews, ...data.results])
     }
   }, [data])
