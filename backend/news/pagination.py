@@ -1,15 +1,14 @@
 from rest_framework import pagination
-from rest_framework.request import Request
 
 
-class NewsPagination(pagination.PageNumberPagination):
-    page_size = 12
+class NewsPagination(pagination.LimitOffsetPagination):
+    default_limit = 12
 
-    def get_page_size(self, request: Request):
+    def get_limit(self, request):
         current_page = request.query_params.get("page", 1)
 
         if current_page in (1, "1"):
-            return self.page_size
+            return self.default_limit
 
-        limit = request.query_params.get("limit", self.page_size)
-        return limit
+        limit = request.query_params.get("limit", self.default_limit)
+        return int(limit)

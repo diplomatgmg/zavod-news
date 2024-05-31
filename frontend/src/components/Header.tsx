@@ -1,6 +1,5 @@
 import React, { type ReactElement } from 'react'
-import { Navbar, Nav, Container } from 'react-bootstrap'
-import SearchForm from './SearchForm'
+import { Container, Nav, Navbar } from 'react-bootstrap'
 import routes from '../routes/routes'
 
 const Header = (): ReactElement => {
@@ -14,7 +13,6 @@ const Header = (): ReactElement => {
             <Nav.Link href={routes.news}>Новости</Nav.Link>
            </Nav>
         </Navbar.Collapse>
-        <SearchForm />
       </Container>
     </Navbar>
   )

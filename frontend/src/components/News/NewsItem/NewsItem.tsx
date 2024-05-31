@@ -24,6 +24,8 @@ const NewsItem: FC<NewsItemProps> = ({ news }) => {
         <Card.Title>{title}</Card.Title>
         <Card.Text className="small mt-3">
           <b>Tags:</b> {tags.map(tag => tag.name).join(', ')}
+          <br/>
+          <b>id: {id}</b>
         </Card.Text>
       </Card.Body>
     </Card>

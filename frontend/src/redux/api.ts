@@ -13,10 +13,19 @@ const api = createApi({
       query: (params) => ({
         url: routes.news,
         params
-      })
+      }),
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName
+      },
+      merge: (currentCache, newItems) => {
+        currentCache.results.push(...newItems.results)
+      },
+      forceRefetch: ({ currentArg, previousArg }) => {
+        return currentArg !== previousArg
+      }
     }),
     getNewsById: build.query<TNews, string>({
-      query: (id) => ({
+      query: (id: string) => ({
         url: routes.newsDetail(id)
       })
     })

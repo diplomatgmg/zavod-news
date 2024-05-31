@@ -1,42 +1,32 @@
-import React, { type ReactElement, useEffect, useState } from 'react'
+import React, { type ReactElement, useEffect } from 'react'
 import { useGetNewsQuery } from '../../../redux/api'
 import { useAppDispatch, useSearchParams } from '../../../redux/hooks'
 import { setPage } from '../../../redux/searchParamsSlice'
-import { type TNewsSummary } from '../../../types/types'
 import NewsList from '../../News/NewsList'
-import { Alert, Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 const NewsPage = (): ReactElement => {
-  const [allNews, setAllNews] = useState<TNewsSummary[]>([])
-  const { data, isFetching } = useGetNewsQuery(useSearchParams())
+  const { page } = useSearchParams()
+  const { data, isFetching, isLoading } = useGetNewsQuery(useSearchParams()) // Передача параметров явно
   const dispatch = useAppDispatch()
-  const { page, tag } = useSearchParams()
 
   useEffect(() => {
+    const handleScroll = (): void => {
+      // Fetch запрос, если пользователь пролистал 80% страницы
+      const remainingHeight = document.body.offsetHeight - window.innerHeight - window.scrollY
+      const twentyPercentHeight = document.body.offsetHeight * 0.2
+
+      if (remainingHeight <= twentyPercentHeight && !isFetching) {
+        dispatch(setPage(page + 1))
+      }
+    }
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [isFetching])
+  }, [isFetching, dispatch, page])
 
-  useEffect(() => {
-    if (data !== undefined) {
-      setAllNews(prevNews => [...prevNews, ...data.results])
-    }
-  }, [data])
-
-  useEffect(() => {
-    if (tag !== '' && data !== undefined) {
-      setAllNews([...data.results])
-    }
-  }, [tag])
-
-  const handleScroll = (): void => {
-    // Fetch запрос, если пользователь пролистал 80% страницы
-    const remainingHeight = document.body.offsetHeight - window.innerHeight - window.scrollY
-    const twentyPercentHeight = document.body.offsetHeight * 0.2
-
-    if (remainingHeight <= twentyPercentHeight && !isFetching) {
-      dispatch(setPage(page + 1))
-    }
+  if (data === undefined || isLoading) {
+    return <h1>Loading...</h1>
   }
 
   if (data?.results.length === 0) {
@@ -47,7 +37,7 @@ const NewsPage = (): ReactElement => {
 
   return (
     <Container className="mt-4 mb-4">
-      <NewsList news={allNews} />
+      <NewsList news={data.results}/>
     </Container>
   )
 }

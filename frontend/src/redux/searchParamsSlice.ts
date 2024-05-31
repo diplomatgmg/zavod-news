@@ -5,7 +5,7 @@ import { LIMIT_PER_PAGE } from '../constants'
 const initialState: TSearchParams = {
   page: 1,
   limit: LIMIT_PER_PAGE,
-  tag: ''
+  offset: 0
 }
 
 const searchParamsSlice = createSlice({
@@ -14,16 +14,19 @@ const searchParamsSlice = createSlice({
   reducers: {
     setPage (state, action: PayloadAction<TSearchParams['page']>) {
       state.page = action.payload
-    },
-    setSearch (state, action: PayloadAction<TSearchParams['tag']>) {
-      state.tag = action.payload
+
+      if (state.page === 2) {
+        state.offset = 12
+      } else {
+        state.offset += 3
+      }
+
     }
   }
 })
 
 export const {
-  setPage,
-  setSearch
+  setPage
 } = searchParamsSlice.actions
 
 export default searchParamsSlice.reducer

@@ -14,13 +14,6 @@ class NewsListAPIView(ListAPIView):
     serializer_class = NewsSerializer
     pagination_class = NewsPagination
 
-    def get_queryset(self):
-        tag_name = self.request.query_params.get("tag")
-        queryset = News.objects.filter(tags__name__icontains=tag_name).prefetch_related(
-            "tags"
-        )
-        return queryset
-
 
 class NewsDetailAPIView(RetrieveAPIView):
     queryset = News.objects.all().prefetch_related("tags")
