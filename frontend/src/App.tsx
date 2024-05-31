@@ -3,13 +3,19 @@ import { useGetNewsQuery } from './redux/api'
 
 const App = (): ReactElement => {
   const {
-    data = []
+    data
   } = useGetNewsQuery({})
 
   return (
-    <pre>
-      {JSON.stringify(data, null, 2)}
-    </pre>
+    <ul>
+      {data?.results.map((item) => (
+        <li key={item.id}>
+          <h3>{item.title}</h3>
+          <img src={item.image} width={200}></img>
+          <p><b>Tags:</b> {item.tags.map(tag => tag.name).join(', ')}</p>
+        </li>
+      ))}
+    </ul>
   )
 }
 
