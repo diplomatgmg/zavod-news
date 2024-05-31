@@ -1,15 +1,15 @@
-import { type ReactElement } from 'react'
-import { useGetNewsQuery } from '../../redux/api'
+import { type FC, type ReactElement } from 'react'
 import NewsItem from './NewsItem'
+import { type TNews, type TNewsSummary } from '../../types/types'
 
-const NewsList = (): ReactElement => {
-  const {
-    data
-  } = useGetNewsQuery({})
+interface NewsListProps {
+  news: TNews[] | TNewsSummary[]
+}
 
+const NewsList: FC<NewsListProps> = ({ news }): ReactElement => {
   return (
     <ul>
-      {data?.results.map((item) => <NewsItem key={item.id} news={item}/>)}
+      {news.map((item) => <NewsItem key={item.id} news={item}/>)}
     </ul>
   )
 }

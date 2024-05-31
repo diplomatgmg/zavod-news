@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { type TNewsResponse } from '../types/responses'
+import { type TSearchParams } from '../types/types'
 
 const api = createApi({
   reducerPath: 'api',
@@ -7,8 +8,11 @@ const api = createApi({
     baseUrl: 'http://localhost:8000'
   }),
   endpoints: (build) => ({
-    getNews: build.query<TNewsResponse, unknown>({
-      query: () => 'news/'
+    getNews: build.query<TNewsResponse, TSearchParams>({
+      query: (params) => ({
+        url: 'news/',
+        params
+      })
     })
   })
 })

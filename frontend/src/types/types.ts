@@ -18,8 +18,14 @@ interface TNewsSummary {
   tags: TNews['tags']
 }
 
+interface TSearchParams {
+  page: number
+  limit: number
+}
+
 export type {
   TTag,
   TNews,
-  TNewsSummary
+  TNewsSummary,
+  TSearchParams
 }
