@@ -1,6 +1,6 @@
 import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 import { type ReactElement } from 'react'
-import NotFoundPage from '../components/pages/ErrorPages/NotFoundPage'
+import NotFoundPage from '../components/pages/ErrorPages/NotFoundPage/NotFoundPage'
 
 const RootBoundary = (): ReactElement => {
   const error = useRouteError()
