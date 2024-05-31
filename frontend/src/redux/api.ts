@@ -5,7 +5,7 @@ import { type TSearchParams } from '../types/types'
 const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8000'
+    baseUrl: 'http://localhost:8000/api/'
   }),
   endpoints: (build) => ({
     getNews: build.query<TNewsResponse, TSearchParams>({
