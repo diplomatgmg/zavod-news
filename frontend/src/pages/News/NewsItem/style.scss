@@ -1,0 +1,11 @@
+.news-card {
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 4px rgba(0, 0, 0, 0.2);
+}

@@ -1,16 +1,17 @@
-import { type ReactElement, useEffect, useState } from 'react'
-import NewsList from './components/News/NewsList'
+import React, { type ReactElement, useEffect, useState } from 'react'
+import { Container } from 'react-bootstrap'
+import NewsList from './pages/News/NewsList'
 import { useGetNewsQuery } from './redux/api'
 import { useAppDispatch, useSearchParams } from './redux/hooks'
 import { setPage } from './redux/searchParamsSlice'
 import { type TNewsSummary } from './types/types'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import SearchForm from './components/SearchForm'
 
 const App = (): ReactElement => {
   const [allNews, setAllNews] = useState<TNewsSummary[]>([])
-  const {
-    data,
-    isFetching
-  } = useGetNewsQuery(useSearchParams())
+  const { data, isFetching } = useGetNewsQuery(useSearchParams())
   const dispatch = useAppDispatch()
   const { page } = useSearchParams()
 
@@ -37,10 +38,12 @@ const App = (): ReactElement => {
 
   return (
     <div>
-      <div>
-        <h1>News</h1>
-        <NewsList news={allNews}/>
-      </div>
+      <Header />
+      <Container className="mt-5">
+        <SearchForm />
+        <NewsList news={allNews} />
+      </Container>
+      <Footer />
     </div>
   )
 }
