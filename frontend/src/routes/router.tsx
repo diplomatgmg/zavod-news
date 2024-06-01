@@ -1,9 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
-import NewsPage from '../components/pages/NewsPage/NewsPage'
+import NewsPage from '../pages/NewsPage/NewsPage'
 import App from '../App'
 import RootBoundary from './RootBoundary'
-import MainPage from '../components/pages/MainPage/MainPage'
-import NewsDetailPage from '../components/pages/NewsDetailPage/NewsDetailPage'
+import MainPage from '../pages/MainPage/MainPage'
+import NewsDetailPage from '../pages/NewsDetailPage/NewsDetailPage'
 import NewsForm from '../forms/News/NewsForm'
 
 const router = createBrowserRouter([

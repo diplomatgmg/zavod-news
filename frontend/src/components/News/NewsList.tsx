@@ -13,7 +13,7 @@ const NewsList: FC<NewsListProps> = ({ news }) => {
       <Row xs={1} md={3} className="g-4 justify-content-center" width="100%">
         {news.map((item, index) => (
           <Col key={`${item.id}-${index}`} className="d-flex justify-content-center">
-            <NewsItem news={item}/>
+            <NewsItem news={item} />
           </Col>
         ))}
       </Row>

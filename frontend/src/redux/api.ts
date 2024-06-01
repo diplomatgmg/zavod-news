@@ -15,16 +15,17 @@ const api = createApi({
         url: routes.news,
         params
       }),
+      providesTags: ['News'],
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName
       },
-      merge: (currentCache, newItems) => {
-        currentCache.results.push(...newItems.results)
+      merge: (currentCache, newCache) => {
+        currentCache.results.push(...newCache.results)
       },
       forceRefetch: ({ currentArg, previousArg }) => {
-        return currentArg !== previousArg
-      },
-      providesTags: ['News']
+        return currentArg?.page !== previousArg?.page
+      }
+
     }),
     getNewsById: build.query<TNews, string>({
       query: (id: string) => ({
@@ -44,6 +45,19 @@ const api = createApi({
         method: 'DELETE'
       }),
       invalidatesTags: ['News']
+    }),
+    likeNews: build.mutation<TNews, number>({
+      query: (id) => ({
+        url: routes.likeNews(id),
+        method: 'POST'
+      }),
+      invalidatesTags: ['News']
+    }),
+    dislikeNews: build.mutation<TNews, number>({
+      query: (id) => ({
+        url: routes.dislikeNews(id),
+        method: 'POST'
+      })
     })
   })
 })
@@ -52,7 +66,9 @@ export const {
   useGetNewsQuery,
   useGetNewsByIdQuery,
   useCreateNewsMutation,
-  useDeleteNewsMutation
+  useDeleteNewsMutation,
+  useLikeNewsMutation,
+  useDislikeNewsMutation
 } = api
 
 export default api

@@ -1,8 +1,8 @@
 import { type ReactElement } from 'react'
 import { useParams } from 'react-router-dom'
-import { useGetNewsByIdQuery } from '../../../redux/api'
+import { useGetNewsByIdQuery } from '../../redux/api'
 import NotFoundPage from '../ErrorPages/NotFoundPage/NotFoundPage'
-import NewsDetailItem from '../../News/NewsDetailItem'
+import NewsDetailItem from '../../components/News/NewsDetailItem'
 
 const NewsDetailPage = (): ReactElement => {
   const { newsId } = useParams()

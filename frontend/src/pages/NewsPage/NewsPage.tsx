@@ -1,13 +1,13 @@
 import React, { type ReactElement, useEffect } from 'react'
-import { useGetNewsQuery } from '../../../redux/api'
-import { useAppDispatch, useSearchParams } from '../../../redux/hooks'
-import { setPage } from '../../../redux/searchParamsSlice'
-import NewsList from '../../News/NewsList'
+import { useGetNewsQuery } from '../../redux/api'
+import { useAppDispatch, useSearchParams } from '../../redux/hooks'
+import { setPage } from '../../redux/searchParamsSlice'
+import NewsList from '../../components/News/NewsList'
 import { Container } from 'react-bootstrap'
 
 const NewsPage = (): ReactElement => {
   const { page } = useSearchParams()
-  const { data, isFetching, isLoading } = useGetNewsQuery(useSearchParams()) // Передача параметров явно
+  const { data, isFetching, isLoading } = useGetNewsQuery(useSearchParams())
   const dispatch = useAppDispatch()
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const NewsPage = (): ReactElement => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [isFetching, dispatch, page])
 
-  if (data === undefined || isLoading) {
+  if (isLoading) {
     return <h1>Loading...</h1>
   }
 
@@ -37,7 +37,7 @@ const NewsPage = (): ReactElement => {
 
   return (
     <Container className="mt-4 mb-4">
-      <NewsList news={data.results}/>
+      <NewsList news={data?.results ?? []} />
     </Container>
   )
 }

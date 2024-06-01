@@ -9,6 +9,8 @@ interface TNews {
   content: string
   image: string
   tags: TTag[]
+  likes: number
+  dislikes: number
 }
 
 interface TNewsSummary {
@@ -16,6 +18,8 @@ interface TNewsSummary {
   title: TNews['title']
   image: TNews['image']
   tags: TNews['tags']
+  likes: TNews['likes']
+  dislikes: TNews['dislikes']
 }
 
 interface TSearchParams {
