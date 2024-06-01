@@ -13,6 +13,8 @@ class News(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to="news_images/")
     tags = models.ManyToManyField(Tag)
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title

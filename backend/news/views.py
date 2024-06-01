@@ -1,9 +1,11 @@
+from rest_framework.decorators import api_view
 from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView,
     CreateAPIView,
     DestroyAPIView,
 )
+from rest_framework.response import Response
 from .models import News, Tag
 from .pagination import NewsPagination
 from .serializers import (
@@ -42,3 +44,19 @@ class NewsDeleteAPIView(DestroyAPIView):
     def delete(self, request, *args, **kwargs):
         print(request, args, kwargs)
         return self.destroy(request, *args, **kwargs)
+
+
+@api_view(["POST"])
+def like_news(request, pk):
+    news = News.objects.get(id=pk)
+    news.likes += 1
+    news.save()
+    return Response({"likes": news.likes})
+
+
+@api_view(["POST"])
+def dislike_news(request, pk):
+    news = News.objects.get(id=pk)
+    news.dislikes += 1
+    news.save()
+    return Response({"dislikes": news.dislikes})

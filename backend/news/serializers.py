@@ -13,7 +13,7 @@ class NewsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        fields = ("id", "title", "image", "tags")
+        fields = ("id", "title", "image", "tags", "likes", "dislikes")
 
 
 class NewsDetailSerializer(serializers.ModelSerializer):
