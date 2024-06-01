@@ -11,6 +11,7 @@ const Header = (): ReactElement => {
         <Navbar.Collapse id="basic-navbar-nav">
            <Nav className="ml-auto">
             <Nav.Link href={routes.news}>Новости</Nav.Link>
+            <Nav.Link href={routes.createNews}>Создать новость</Nav.Link>
            </Nav>
         </Navbar.Collapse>
       </Container>

@@ -32,7 +32,7 @@ DEBUG_TOOLBAR_CONFIG = {
 
 ALLOWED_HOSTS = []
 
-CORS_ALLOWED_ORIGINS = [
+CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
 ]
 

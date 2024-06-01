@@ -4,6 +4,7 @@ import App from '../App'
 import RootBoundary from './RootBoundary'
 import MainPage from '../components/pages/MainPage/MainPage'
 import NewsDetailPage from '../components/pages/NewsDetailPage/NewsDetailPage'
+import NewsForm from '../forms/News/NewsForm'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: '/news/tag/:tag',
     element: <App><NewsPage /></App>
+  },
+  {
+    path: '/news/create/',
+    element: <App><NewsForm /></App>
   }
 ])
 

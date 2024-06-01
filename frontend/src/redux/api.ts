@@ -8,6 +8,7 @@ const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:8000/api/'
   }),
+  tagTypes: ['News'],
   endpoints: (build) => ({
     getNews: build.query<TNewsResponse, TSearchParams>({
       query: (params) => ({
@@ -22,19 +23,36 @@ const api = createApi({
       },
       forceRefetch: ({ currentArg, previousArg }) => {
         return currentArg !== previousArg
-      }
+      },
+      providesTags: ['News']
     }),
     getNewsById: build.query<TNews, string>({
       query: (id: string) => ({
         url: routes.newsDetail(id)
       })
+    }),
+    createNews: build.mutation<TNews, Omit<TNews, 'id'>>({
+      query: (body) => ({
+        url: routes.createNews,
+        method: 'POST',
+        body
+      })
+    }),
+    deleteNews: build.mutation<TNews, number>({
+      query: (id) => ({
+        url: routes.deleteNews(id),
+        method: 'DELETE'
+      }),
+      invalidatesTags: ['News']
     })
   })
 })
 
 export const {
   useGetNewsQuery,
-  useGetNewsByIdQuery
+  useGetNewsByIdQuery,
+  useCreateNewsMutation,
+  useDeleteNewsMutation
 } = api
 
 export default api
