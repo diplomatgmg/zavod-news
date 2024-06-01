@@ -33,7 +33,7 @@ const NewsItem: FC<NewsItemProps> = ({ news }) => {
   return (
     <>
       <Card className="news-card" style={{ width: '22rem', height: '100%' }}>
-        <Card.Img variant="top" src={image} alt={title} onClick={handleNewsClick} />
+        <Card.Img variant="top" src={image} alt={title} onClick={handleNewsClick}/>
         <Card.Body className="d-flex flex-column justify-content-between pb-0">
           <Card.Title onClick={handleNewsClick}>{title}</Card.Title>
           <Card.Text className="small mt-3" onClick={handleNewsClick}>
@@ -43,7 +43,7 @@ const NewsItem: FC<NewsItemProps> = ({ news }) => {
           </Card.Text>
           <Col xs={12}>
             <Button variant="danger" onClick={() => setShowConfirmation(true)} size="sm">
-              Delete
+              Удалить
             </Button>
           </Col>
         </Card.Body>
